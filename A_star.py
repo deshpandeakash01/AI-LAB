@@ -13,7 +13,6 @@ def print_board(state, step_num):
     """Prints the state nicely formatted as a 3x3 grid."""
     print(f"--- Step {step_num} ---")
     for i in range(0, 9, 3):
-        # Replaces '0' with a blank space for better readability
         row = [tile if tile != '0' else ' ' for tile in state[i:i+3]]
         print(f"| {row[0]} | {row[1]} | {row[2]} |")
     print()
@@ -26,7 +25,7 @@ def solve_puzzle(start):
             # Loop through and display every recorded intermediate state
             for step_num, current_state in enumerate(path):
                 print_board(current_state, step_num)
-            print(f"🎉 Success! Solved in {len(path) - 1} steps.")
+            print(f" Success! Solved in {len(path) - 1} steps.")
             return
         blank = state.index('0')
         r, c = divmod(blank, 3)
