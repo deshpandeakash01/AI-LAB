@@ -1,8 +1,6 @@
 import random
 import math
-
 N = 8  # 8-Queens problem
-
 def get_cost(state):
     """Calculates number of mutually attacking pairs of queens."""
     conflicts = 0
@@ -11,7 +9,6 @@ def get_cost(state):
             if state[i] == state[j] or abs(state[i] - state[j]) == abs(i - j):
                 conflicts += 1
     return conflicts
-
 def simulated_annealing():
     # 1. Initialize random state, high temperature, and cooling rate
     current_state = [random.randint(0, N - 1) for _ in range(N)]
@@ -21,7 +18,6 @@ def simulated_annealing():
     cooling_rate = 0.95 # Alpha parameter to cool down
     threshold = 0.01   # Temperature stopping limit
     step = 0
-    
     print(f"Initial State: {current_state} | Initial Conflicts: {current_cost}\n")
     
     while T > threshold:
