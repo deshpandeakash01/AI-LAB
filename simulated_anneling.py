@@ -51,7 +51,7 @@ def simulated_annealing():
             # Better state -> Always accept
             current_state = neighbor_state
             current_cost = neighbor_cost
-            print("👉 Decision: Move ACCEPTED (Neighbor is better).")
+            print("Decision: Move ACCEPTED (Neighbor is better).")
         else:
             # Worse state -> Calculate probability to accept it anyway
             acceptance_prob = math.exp(-delta_E / T)
@@ -61,14 +61,14 @@ def simulated_annealing():
             if random_val < acceptance_prob:
                 current_state = neighbor_state
                 current_cost = neighbor_cost
-                print("👉 Decision: Move ACCEPTED (Worse state accepted to escape local minimum trap).")
+                print(" Decision: Move ACCEPTED (Worse state accepted to escape local minimum trap).")
             else:
-                print("👉 Decision: Move REJECTED. Staying at current state.")
+                print("Decision: Move REJECTED. Staying at current state.")
                 
         # 5. Cool down the temperature
         T *= cooling_rate
         
-    print(f"\n🛑 TIMEOUT: Reached freezing point. Final state found: {current_state} with cost {current_cost}")
+    print(f"\nTIMEOUT: Reached freezing point. Final state found: {current_state} with cost {current_cost}")
     return current_cost == 0
 
 # Run the algorithm with a restart loop to ensure it successfully finds a global solution
